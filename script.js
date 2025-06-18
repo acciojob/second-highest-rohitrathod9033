@@ -1,19 +1,15 @@
 function secondHighest(arr) {
-	arr = arr.map(Number); // Convert strings to numbers
-
-	let max = -Infinity;
-	let second = -Infinity;
-
+	arr = arr.map(Number);
+	let max = -Infinity, second = -Infinity;
 	for (let num of arr) {
 		if (num > max) {
 			second = max;
 			max = num;
-		} else if (num < max && num > second) {
+		} else if (num > second && num < max) {
 			second = num;
 		}
 	}
-
-	return second;
+	return second === -Infinity ? -Infinity : second;
 }
 
 function Main() {
